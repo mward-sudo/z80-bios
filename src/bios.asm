@@ -25,10 +25,22 @@ start:
     ld (hl), 0x38   ; White paper (0x38) + Black ink (0x00)
     ldir            ; Set attributes for the entire screen
 
-    ; Print test message
+    ; Print all available characters
     ld hl, 0x4000   ; Start of screen memory
-    ld de, test_msg
-    call print_string
+    ld b, 26        ; Number of characters (A-Z)
+    ld a, 65        ; ASCII code for 'A'
+
+print_all_chars:
+    push af
+    push bc
+    push hl
+    call print_char
+    pop hl
+    inc l           ; Move to next column
+    pop bc
+    pop af
+    inc a           ; Move to next character
+    djnz print_all_chars
 
     ; Infinite loop
     halt
@@ -87,8 +99,9 @@ char_done:
     pop bc
     ret
 
-test_msg:
-    db "HELLO WORLD", 0
+; Remove the test_msg as it's no longer needed
+; test_msg:
+;     db "HELLO WORLD", 0
 
 char_set:
     ; Full uppercase alphabet (8x8 pixels, similar to ZX Spectrum +2A font)

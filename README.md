@@ -10,7 +10,7 @@ This BIOS is written in Z80 assembly language and provides fundamental system in
 
 - System initialization
 - Screen clearing and border color setting
-- Character set implementation (0-9, A-Z, a-z)
+- Complete character set implementation (space to ~, ASCII 32-126)
 - Basic character printing routines
 
 ## File Structure
@@ -25,6 +25,7 @@ To assemble the BIOS, use z80asm:
 make clean && make
 ```
 
+Use the resulting `bios.rom` file with an emulator or on real hardware.
 
 ## Usage
 
@@ -36,6 +37,9 @@ The BIOS includes a custom 8x8 pixel font for:
 - Uppercase letters (A-Z)
 - Lowercase letters (a-z)
 - Digits (0-9)
+- Punctuation and special characters (space to ~)
+
+The character set covers the full printable ASCII range (32-126), including all standard punctuation and symbol characters.
 
 ## Contributing
 

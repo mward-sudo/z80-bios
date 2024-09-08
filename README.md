@@ -1,45 +1,50 @@
-# ZX Spectrum +2A BIOS
+# Custom ZX Spectrum +2A BIOS Project
 
-This project contains a basic BIOS (Basic Input/Output System) implementation for the ZX Spectrum +2A home computer.
+This project implements a custom BIOS for the ZX Spectrum +2A, written in Z80 assembly language.
 
 ## Overview
 
-This BIOS is written in Z80 assembly language and provides fundamental system initialization and character display functionality. It's designed to be assembled using the z80asm assembler.
+The BIOS provides fundamental system initialization and character display functionality, including a complete ZX Spectrum-compatible character set. It's designed to be assembled using the z80asm assembler.
 
 ## Features
 
 - System initialization
 - Screen clearing and border color setting
-- Complete character set implementation (space to ~, ASCII 32-126)
+- Complete ZX Spectrum character set implementation (space to ~, ASCII 32-126)
 - Basic character printing routines
 
 ## File Structure
 
 - `src/bios.asm`: Main BIOS source code
+- `Makefile`: Build automation
+- `bios.rom`: Assembled BIOS ROM file (generated)
 
-## Assembly
+## Building
 
-To assemble the BIOS, use z80asm:
+To assemble the BIOS, ensure you have z80asm installed, then run:
 
-```
-make clean && make
-```
+    make
 
-Use the resulting `bios.rom` file with an emulator or on real hardware.
+This will generate the `bios.rom` file.
+
+To clean up build artifacts:
+
+    make clean
 
 ## Usage
 
-This BIOS can be used as a starting point for ZX Spectrum +2A development or emulation projects. It initializes the system and displays all available characters on the screen.
+The assembled `bios.rom` file can be used with ZX Spectrum +2A emulators or potentially on real hardware. When run, it initializes the system and displays all available characters on the screen.
 
 ## Character Set
 
-The BIOS includes a custom 8x8 pixel font for:
+The BIOS includes a custom 8x8 pixel font covering the full printable ASCII range (32-126), including:
+
 - Uppercase letters (A-Z)
 - Lowercase letters (a-z)
 - Digits (0-9)
-- Punctuation and special characters (space to ~)
+- Punctuation and special characters
 
-The character set covers the full printable ASCII range (32-126), including all standard punctuation and symbol characters.
+The character set is designed to match the ZX Spectrum's original font.
 
 ## Contributing
 
@@ -47,7 +52,7 @@ Contributions to improve or extend this BIOS are welcome. Please feel free to su
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgements
 

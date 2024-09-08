@@ -1,0 +1,32 @@
+# Compiled ROM file
+bios.rom
+
+# Assembly listing files
+*.lis
+
+# Temporary files
+*~
+*.swp
+*.swo
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor-specific files
+.vscode/
+.idea/
+
+# Build directories
+build/
+bin/
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Log files
+*.log
+
+# Backup files
+*.bak
